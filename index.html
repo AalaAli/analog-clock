@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>analog clock</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="https://fav.farm/🔥" />
+</head>
+
+<body>
+    <div class="clock">
+        <div class="clock-face">
+            <div class="circle"></div>
+
+            <div class="sec hand"></div>
+            <div class="min hand"></div>
+            <div class="hr hand"></div>
+        </div>
+    </div>
+  
+    <script>
+        const secHand = document.querySelector('.sec');
+        const minHand = document.querySelector('.min');
+        const hrHand = document.querySelector('.hr');
+        function setDate() {
+            const now = new Date();
+            const sec=now.getSeconds();
+            const secdeg = ((sec / 60) * 360) + 90;
+            secHand.style.transform = `rotate(${secdeg}deg)`;
+
+            const min=now.getMinutes();
+            const mindeg = ((min/ 60) * 360) + 90;
+            minHand.style.transform = `rotate(${mindeg}deg)`;
+
+
+            const hr=now.getHours();
+            const hourdeg = ((hr / 12) * 360) + 90;
+            hrHand.style.transform = `rotate(${hourdeg}deg)`;
+        if(secdeg===360){
+            secHand.style.transition='none';
+        }
+        }
+
+
+        setInterval(setDate, 1000);
+
+
+    </script>
+</body>
+
+</html>
